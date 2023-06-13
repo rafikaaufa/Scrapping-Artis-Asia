@@ -16,7 +16,6 @@ for (i in 1:100){
   data[i,4]<-as.numeric(gsub(",",".",ar2[[i]][4]))
 }
 data2 <- data %>% arrange(posisi)
-data2
 
 message('Input Data ke MongoDB Atlas')
 atlas_conn <- mongo(
@@ -25,4 +24,5 @@ atlas_conn <- mongo(
   url        = Sys.getenv("ATLAS_URL")
 )
 
-atlas_conn$insert(data2[sample(1:nrow(data2),2),])
+atlas_conn$insert(data2)
+rm(atlas_conn)
