@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     
 jobs:
-  dotabuff-scrape:
+  artis-scrape:
     runs-on: macOS-latest
     env:
       ATLAS_URL: ${{ secrets.ATLAS_URL }}
@@ -24,4 +24,4 @@ jobs:
         install.packages("mongolite")
       shell: Rscript {0} 
     - name: Scrape Artis Asia 
-      run: Scrape-Artis-Asia.R
+      run: Rscript Scrape-Artis-Asia.R
